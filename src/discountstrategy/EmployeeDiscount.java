@@ -1,0 +1,19 @@
+
+package discountstrategy;
+
+/**
+ *
+ * @author Daniel
+ */
+public class EmployeeDiscount implements DiscountStrategy{
+
+private double employeeDiscount = .15;    
+    
+//get a discount off each item    
+@Override    
+public double getDiscount(double productCost, int productQty){
+    return ((productCost * employeeDiscount) * productQty);
+}
+        
+    
+}
