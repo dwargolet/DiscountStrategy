@@ -4,19 +4,30 @@ package discountstrategy;
  *
  * @author Daniel
  */
-public class Product {
+public class ProductInformation {
     
     private String productID;
     private String productDescription;
     private int quantity;
+    private double productPrice;
     private DiscountStrategy ds;
 
-    public Product(String productID, String productDescription, int quantity, DiscountStrategy ds) {
+    public ProductInformation(String productID, String productDescription, int quantity, double productPrice, DiscountStrategy ds) {
         this.productID = productID;
         this.productDescription = productDescription;
         this.quantity = quantity;
+        this.productPrice = productPrice;
         this.ds = ds;
     }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
+    public void setProductPrice(double productPrice) {
+        this.productPrice = productPrice;
+    }
+
 
     public DiscountStrategy getDs() {
         return ds;

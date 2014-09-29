@@ -11,10 +11,8 @@ public class StartUp {
         
         
         
-        DiscountStrategy a = new EmployeeDiscount();
-        Product ball = new Product("ABCD", "A Ball", 3, a);
+//        DiscountStrategy a = new EmployeeDiscount();
+//        ProductInformation ball = new ProductInformation("ABCD", "A Ball", 3, 4.33, a);
         
-        
-        System.out.println(ball.getProductDescription() + " " + ball.getProductID());
     }
 }
