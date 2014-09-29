@@ -23,7 +23,7 @@ public class FictionalDatabase {
         }
     }
     
-    
+
     
     private ProductInformation[] products = {
         new ProductInformation ("1A1", "T-shirt", 1, 4.99, new FlatRateDiscount()),
