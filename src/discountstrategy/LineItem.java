@@ -6,9 +6,7 @@ package discountstrategy;
  */
 public class LineItem {
     private ProductInformation product;
-//    private LineItem [] lineItems;
-    
-    
+
     private FictionalDatabase db;
 
     
