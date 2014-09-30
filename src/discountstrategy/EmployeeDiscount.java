@@ -11,8 +11,8 @@ private double employeeDiscount = .15;
     
 //get a discount off each item    
 @Override    
-public double getDiscount(double productCost, int productQty){
-    return ((productCost * employeeDiscount) * productQty);
+public double getDiscount(double productCost){
+    return (productCost * employeeDiscount);
 }
         
     

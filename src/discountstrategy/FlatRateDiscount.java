@@ -14,7 +14,7 @@ public class FlatRateDiscount implements DiscountStrategy{
     
     //curently takes a flat rate off each product
     @Override
-    public double getDiscount(double productCost, int productQty){
-        return ((productCost * productQty) - flateRateDiscount);
+    public double getDiscount(double productCost){
+        return (productCost - flateRateDiscount);
     }
 }
