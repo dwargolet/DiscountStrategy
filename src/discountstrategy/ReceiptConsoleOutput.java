@@ -16,9 +16,7 @@ public class ReceiptConsoleOutput {
     public ReceiptConsoleOutput(CustomerInformation customerID) {
         this.customer = db.findCustomer(customerID);
     }
-   
-    
-   
+
    
    public void totalSales(LineItem lineItem){
       total = lineItem.getProductPrice() * quantity;
@@ -29,7 +27,10 @@ public class ReceiptConsoleOutput {
         this.quantity = quantity;
     }
    
-   
+   public void printReceipt(CustomerInformation customer, LineItem lineItem){
+       System.out.println(customer + " " + lineItem + " " + total);
+      
+   }
    
 //    public LineItem[] getLineItems() {
 //        return lineItems;

@@ -7,7 +7,7 @@ package discountstrategy;
  */
 public class EmployeeDiscount implements DiscountStrategy{
 
-private double employeeDiscount = .15;    
+private final double employeeDiscount = .15;    
     
 //get a discount off each item    
 @Override    

@@ -15,6 +15,8 @@ public class Register {
         receipt = new ReceiptConsoleOutput(custID);
     }
     
-    
+    public void endTransaction(){
+        
+    }
     
 }

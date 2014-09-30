@@ -46,11 +46,7 @@ public class LineItem {
 //    public int getQuantity() {
 //        return product.getQuantity();
 //    }
-    
-//    public double getProductTotal(){
-//       return product.getProductPrice() * product.getQuantity();
-//    }
-//    
+       
     
 //    public void writeLineItem(){
 //        System.out.println(product.getProductDescription() +
