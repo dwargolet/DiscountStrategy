@@ -40,7 +40,7 @@ public class ReceiptConsoleOutput {
    public void printReceipt(){
        System.out.println(" ");
       for(LineItem item : lineItems){
-          System.out.println(item.get);
+          System.out.println(item.getLineItemData());
       }
    }
     
