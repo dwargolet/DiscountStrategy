@@ -7,16 +7,20 @@ package discountstrategy;
 public class Register {
     
        
-    private ReceiptConsoleOutput receipt;
+    private ReceiptStrategy receipt;
 
    
     
-    public void startTransaction(CustomerInformation custID){
-        receipt = new ReceiptConsoleOutput(custID);
+    public void startTransaction(CustomerInformation customerID, FakeDatabaseStrategy database){
+        receipt = new ReceiptConsoleOutput(customerID, database);
+    }
+    
+    public void addItem(String productID, int quantity){
+        receipt.addLineItem(productID, quantity);
     }
     
     public void endTransaction(){
-        
+        receipt.printReceipt();
     }
     
 }

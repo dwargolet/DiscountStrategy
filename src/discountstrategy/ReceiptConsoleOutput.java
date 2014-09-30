@@ -4,7 +4,7 @@ package discountstrategy;
  *
  * @author Daniel
  */
-public class ReceiptConsoleOutput {
+public class ReceiptConsoleOutput implements ReceiptStrategy{
     
    private LineItem[] lineItems = new LineItem[0];
    private int quantity;
@@ -14,15 +14,19 @@ public class ReceiptConsoleOutput {
    private FakeDatabaseStrategy db;
    
    
-    public ReceiptConsoleOutput(String customerID, FakeDatabaseStrategy) {
-        this.database = db;
+    public ReceiptConsoleOutput(String customerID, FakeDatabaseStrategy db) {
+        this.db = db;
         customer = findCustomer(customerID);
     }
 
-    private CustomerInformation locateCustomer(String customerID){
-        return db.findCustomer(customerID);
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
-   
+    
+//    private CustomerInformation locateCustomer(String customerID){
+//        return db.findCustomer(customerID);
+//    }
+//   
     
     private void addToLineItemArray(LineItem item){
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
@@ -32,11 +36,20 @@ public class ReceiptConsoleOutput {
     }
     
   
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void addLineItem(String productID, int quantity){
+        LineItem item = new LineItem(productID,db,quantity);
+        addToLineItemArray(item);
     }
+    
    
+    
+    
+   /**
+   * This method is inherited from the interface and will print the receipt
+   * to the console.
+   * @param lineItem all of the data listed inside the lineItem
+   */ 
+   @Override
    public void printReceipt(){
        System.out.println(" ");
       for(LineItem item : lineItems){
@@ -46,18 +59,7 @@ public class ReceiptConsoleOutput {
     
     
 
-        
-   
-   
-   
-    
-   
-   
-   /**
-    * This method will print the receipt
-    * @param lineItem all of the data listed inside the lineItem
-    */ 
-//   public void printReciept(LineItem lineItem){
+       
        
    }
     

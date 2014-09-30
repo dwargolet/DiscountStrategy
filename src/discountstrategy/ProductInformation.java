@@ -36,7 +36,7 @@ public class ProductInformation {
 
     
 
-    public DiscountStrategy getDiscountAmount() {
+    public double getDiscountAmount() {
         return discount.getDiscount(productPrice);
     }
 
