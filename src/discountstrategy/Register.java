@@ -13,6 +13,15 @@ public class Register {
     ProductInformation product;
     
     LineItem [] lineItems = new LineItem[0];
+
+    public CustomerInformation getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CustomerInformation customer) {
+        this.customer = customer;
+    }
+    
     
     
     
