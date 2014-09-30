@@ -6,12 +6,21 @@ package discountstrategy;
  */
 public class LineItem {
     private ProductInformation product;
+//    private LineItem [] lineItems;
+    
+    
+    private FictionalDatabase db;
 
     
     
-    public LineItem(ProductInformation product) {
+    
+    public LineItem(ProductInformation product, FictionalDatabase db) {
         this.product = product;
+        
+        this.db = db;
     }
+    
+    
 
     public ProductInformation getProduct() {
         return product;
@@ -34,20 +43,20 @@ public class LineItem {
     }
 
     
-    public int getQuantity() {
-        return product.getQuantity();
-    }
+//    public int getQuantity() {
+//        return product.getQuantity();
+//    }
     
-    public double getProductTotal(){
-       return product.getProductPrice() * product.getQuantity();
-    }
+//    public double getProductTotal(){
+//       return product.getProductPrice() * product.getQuantity();
+//    }
+//    
     
-    
-    public void writeLineItem(){
-        System.out.println(product.getProductDescription() +
-                " " + product.getProductID() + 
-                " " + product.getProductPrice() +
-                " " + product.getQuantity() +
-                " " + getProductTotal());
-    }
+//    public void writeLineItem(){
+//        System.out.println(product.getProductDescription() +
+//                " " + product.getProductID() + 
+//                " " + product.getProductPrice() +
+//                " " + product.getQuantity() +
+//                " " + getProductTotal());
+//    }
 }

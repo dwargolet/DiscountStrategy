@@ -6,23 +6,14 @@ package discountstrategy;
  */
 public class Register {
     
-    private FictionalDatabase db;
-    private DiscountStrategy ds;
-    private Receipt receipt;
-    CustomerInformation customer;
-    ProductInformation product;
-    
-    LineItem [] lineItems = new LineItem[0];
+       
+    private ReceiptConsoleOutput receipt;
 
-    public CustomerInformation getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(CustomerInformation customer) {
-        this.customer = customer;
-    }
+   
     
-    
+    public void startTransaction(CustomerInformation custID){
+        receipt = new ReceiptConsoleOutput(custID);
+    }
     
     
     

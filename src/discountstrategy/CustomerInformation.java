@@ -26,12 +26,15 @@ public class CustomerInformation {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    
+    public void setCustomerID(final String customerID) {
+        if(customerID == null || customerID.isEmpty()){
+           throw new IllegalArgumentException();
+       } 
+        
         this.customerID = customerID;
     }
     
-    
-    
-    
+   
     
 }
