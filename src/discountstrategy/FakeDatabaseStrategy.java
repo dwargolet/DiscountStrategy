@@ -11,8 +11,8 @@ package discountstrategy;
  * @author dworgolet
  */
 public interface FakeDatabaseStrategy {
-     public abstract void findCustomer(String customerID);
-     public abstract void findProduct(String productID);
+     public abstract CustomerInformation findCustomer(String customerID);
+     public abstract ProductInformation findProduct(String productID);
      public abstract void addCustomerToDataBase(CustomerInformation Customer);
      public abstract void addProductToDataBase(ProductInformation product);
 }

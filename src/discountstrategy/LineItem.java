@@ -12,7 +12,7 @@ public class LineItem {
     
     
     
-    public LineItem(ProductInformation product, int quantity, FictionalDatabase db) {
+    public LineItem(String productID, int quantity, FictionalDatabase db) {
         this.product = db.findProduct(productID);
         this.quantity = quantity;
         this.db = db;

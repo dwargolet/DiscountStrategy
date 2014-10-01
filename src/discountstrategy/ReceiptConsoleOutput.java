@@ -16,17 +16,17 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
    
     public ReceiptConsoleOutput(String customerID, FakeDatabaseStrategy db) {
         this.db = db;
-        customer = findCustomer(customerID);
+        customer = locateCustomer(customerID);
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     
-//    private CustomerInformation locateCustomer(String customerID){
-//        return db.findCustomer(customerID);
-//    }
-//   
+    private CustomerInformation locateCustomer(String customerID){
+        return db.findCustomer(customerID);
+    }
+   
     
     private void addToLineItemArray(LineItem item){
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
@@ -37,18 +37,13 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     
   
     public void addLineItem(String productID, int quantity){
-        LineItem item = new LineItem(productID,db,quantity);
+        LineItem item = new LineItem(productID,quantity, db);
         addToLineItemArray(item);
     }
     
    
     
-    
-   /**
-   * This method is inherited from the interface and will print the receipt
-   * to the console.
-   * @param lineItem all of the data listed inside the lineItem
-   */ 
+   
    @Override
    public void printReceipt(){
        System.out.println(" ");

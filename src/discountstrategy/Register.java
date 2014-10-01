@@ -5,13 +5,12 @@ package discountstrategy;
  * @author Daniel
  */
 public class Register {
+//    private ReceiptStrategy receipt;
     
-       
-    private ReceiptStrategy receipt;
+    
+    private ReceiptConsoleOutput receipt;
 
-   
-    
-    public void startTransaction(CustomerInformation customerID, FakeDatabaseStrategy database){
+    public void startTransaction(String customerID, FakeDatabaseStrategy database){
         receipt = new ReceiptConsoleOutput(customerID, database);
     }
     

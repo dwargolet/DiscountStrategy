@@ -18,18 +18,17 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
         new CustomerInformation ("Denzel Washington", "313Den"),
         new CustomerInformation ("Bruce Lee", "Dr4g0n")       
     };
-    
-    
-    CustomerInformation customer;
-    
+
     @Override
-    public void findCustomer(String customerID){
+    public CustomerInformation findCustomer(String customerID){
+        CustomerInformation customer = null;
         for(CustomerInformation cust : customers){
-            if(customerID.equals(customer.getCustomerID())){
+            if(customerID.equals(cust.getCustomerID())){
                 customer = cust;
                 break;
             }
         }
+        return customer;
     }
     
     @Override
@@ -46,18 +45,18 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
         new ProductInformation ("2B2", "Skirt", 9.99, new EmployeeDiscount()),      
     };
     
-    ProductInformation product;
+   
     
     @Override
-      public void findProduct(String productID){
-          
-          
+      public ProductInformation findProduct(String productID){    
+        ProductInformation product = null;
         for(ProductInformation p : products){
             if(productID.equals(product.getProductID())){
                 product = p;
                 break;
             }
         }
+        return product;
     }
     
       @Override
