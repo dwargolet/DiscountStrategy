@@ -1,8 +1,9 @@
 package discountstrategy;
 
-/**
- *
+/**This is a superclass, it manages the work by calling on the other classes
+ * 
  * @author Daniel
+ * @version 1.00 
  */
 public class Register {
     private ReceiptStrategy receipt;

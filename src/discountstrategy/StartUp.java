@@ -1,9 +1,11 @@
 
 package discountstrategy;
 
-/**
+/**This is the startup class, used to initialize and start the program, as well
+ * as end it by utilizing the endTransaction method.
  *
  * @author Daniel
+ * @version 1.00 
  */
 public class StartUp {
     public static void main(String[] args) {

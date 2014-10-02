@@ -1,9 +1,11 @@
 
 package discountstrategy;
 
-/**
- *
+/**This class implements the DiscountStrategy interface, it utilizes a flat rate
+ *discount, which can be changed at any time.
+ * 
  * @author Daniel
+ * @version 1.00 
  */
 public class FlatRateDiscount implements DiscountStrategy{
     

@@ -1,8 +1,10 @@
 package discountstrategy;
 
-/**
+/**This class takes all of the information of a "item" object and sets it as a
+ * line item, putting the information into a line like format for the receipt
  *
  * @author Daniel
+ * @version 1.00 
  */
 public class LineItem {
     private ProductInformation product;
@@ -36,6 +38,8 @@ public class LineItem {
                 ;
     }
     
+    
+    //testing
     public static void main(String[] args) {
         LineItem receipt = new LineItem("1A1", 2, new FictionalDatabase());
         System.out.println(receipt.getLineItemData());

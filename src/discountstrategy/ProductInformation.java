@@ -1,8 +1,9 @@
 package discountstrategy;
 
-/**
+/**This class stores the information for individual "item" objects. 
  *
  * @author Daniel
+ * @version 1.00 
  */
 public class ProductInformation {
     
