@@ -6,6 +6,7 @@ package discountstrategy;
  * @author Daniel
  * @version 1.00 
  */
+
 public class ReceiptConsoleOutput implements ReceiptStrategy{
     
    private LineItem[] lineItems = new LineItem[0];
@@ -37,6 +38,7 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     }
        
    
+    
     @Override
     public void printReceipt(){
        System.out.println(customer.getCustomerFullName());
@@ -46,6 +48,8 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
       }
    }
       
+    
+    
    //testing
     public static void main(String[] args) {
         ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n",new FictionalDatabase());

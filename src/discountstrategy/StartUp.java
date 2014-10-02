@@ -16,7 +16,10 @@ public class StartUp {
 //       r.addItem("1A1", 2);
        r.endTransaction();
        
-        
+        r.startTransaction("313Den", new FictionalDatabase ());
+//       r.addItem("1A1", 2);
+       r.endTransaction();
+       
 
         
     }

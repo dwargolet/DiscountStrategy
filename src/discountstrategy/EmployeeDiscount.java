@@ -12,7 +12,13 @@ public class EmployeeDiscount implements DiscountStrategy{
 
 private double employeeDiscount = .15;    
     
-//get a discount off each item    
+
+/**
+ * The overridden method from the interface
+ * @param productCost the cost of the product
+ * @return the discount amount
+ */
+
 @Override    
 public double getDiscount(double productCost){
     return (productCost * employeeDiscount);

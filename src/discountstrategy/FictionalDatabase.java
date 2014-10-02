@@ -1,4 +1,3 @@
-
 package discountstrategy;
 
 /**
@@ -19,6 +18,13 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
         new CustomerInformation ("Bruce Lee", "Dr4g0n")       
     };
 
+    
+    /**
+     * this method finds the customer by matching the customerID
+     * @param customerID the unique string that is used to locate the customer
+     * @return the customer that matches the customerID
+     */
+   
     @Override
     public CustomerInformation findCustomer(String customerID){
         CustomerInformation customer = null;
@@ -30,6 +36,7 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
         }
         return customer;
     }
+    
     
     @Override
     public void addCustomerToDataBase(final CustomerInformation customer){
