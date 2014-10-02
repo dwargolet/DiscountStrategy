@@ -9,19 +9,14 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
    private LineItem[] lineItems = new LineItem[0];
 
    private CustomerInformation customer;
-   private double grandTotal;
-   private  double totalWithoutDiscount;
+//   private double grandTotal;
+//   private  double totalWithoutDiscount;
    private FakeDatabaseStrategy db;
    
    
     public ReceiptConsoleOutput(String customerID, FakeDatabaseStrategy db) {
         this.db = db;
-        customer = locateCustomer(customerID);
-    }
-
-    
-    private CustomerInformation locateCustomer(String customerID){
-        return db.findCustomer(customerID);
+        customer = db.findCustomer(customerID);
     }
    
     
@@ -33,13 +28,12 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     }
     
   
-    public void addLineItem(String productID, int quantity){
+    @Override
+    public void addLineItem(String productID, int quantity ){
         LineItem item = new LineItem (productID,quantity, db);
         addToLineItemArray(item);
     }
-    
-   
-    
+       
    
    @Override
    public void printReceipt(){
@@ -50,12 +44,22 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
       }
    }
     
-    
+   
+   //testing
+    public static void main(String[] args) {
+        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n",new FictionalDatabase());
+        receipt.addLineItem("1A1", 2);
+        receipt.printReceipt();
+//        FakeDatabaseStrategy db = new FictionalDatabase();
+        
+//        db.findCustomer("Dr4g0n");
+//        System.out.println(db.findCustomer("Dr4g0n"));
+    }
 
+        
        
        
    }
-    
     
     
     
