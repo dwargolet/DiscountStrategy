@@ -7,12 +7,12 @@ package discountstrategy;
 public class LineItem {
     private ProductInformation product;
     private int quantity;
-    private FictionalDatabase db;
+    private FakeDatabaseStrategy db;
 
     
     
     
-    public LineItem(String productID, int quantity, FictionalDatabase db) {
+    public LineItem(String productID, int quantity, FakeDatabaseStrategy db) {
         this.product = db.findProduct(productID);
         this.quantity = quantity;
         this.db = db;

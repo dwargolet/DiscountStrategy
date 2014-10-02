@@ -7,7 +7,7 @@ package discountstrategy;
 public class ReceiptConsoleOutput implements ReceiptStrategy{
     
    private LineItem[] lineItems = new LineItem[0];
-   private int quantity;
+
    private CustomerInformation customer;
    private double grandTotal;
    private  double totalWithoutDiscount;
@@ -19,9 +19,6 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
         customer = locateCustomer(customerID);
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
     
     private CustomerInformation locateCustomer(String customerID){
         return db.findCustomer(customerID);
@@ -37,7 +34,7 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     
   
     public void addLineItem(String productID, int quantity){
-        LineItem item = new LineItem(productID,quantity, db);
+        LineItem item = new LineItem (productID,quantity, db);
         addToLineItemArray(item);
     }
     
@@ -46,7 +43,8 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
    
    @Override
    public void printReceipt(){
-       System.out.println(" ");
+       System.out.println(customer.getCustomerFullName());
+      
       for(LineItem item : lineItems){
           System.out.println(item.getLineItemData());
       }

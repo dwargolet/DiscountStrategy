@@ -8,7 +8,20 @@ package discountstrategy;
 public class FlatRateDiscount implements DiscountStrategy{
     
     //Set a flat rate variable
-    private final double flateRateDiscount = 3;
+    private double flateRateDiscount = 3;
+
+    public FlatRateDiscount() {
+    }
+
+    
+    
+    public double getFlateRateDiscount() {
+        return flateRateDiscount;
+    }
+    
+    public void setFlateRateDiscount(double flateRateDiscount) {
+        this.flateRateDiscount = flateRateDiscount;
+    }
     
     
     
