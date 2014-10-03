@@ -16,12 +16,13 @@ private double employeeDiscount = .15;
 /**
  * The overridden method from the interface
  * @param productCost the cost of the product
+ * @param quantity how many items are being entered
  * @return the discount amount
  */
 
 @Override    
-public double getDiscount(double productCost){
-    return (productCost * employeeDiscount);
+public double getDiscount(double productCost, int quantity){
+    return (productCost * employeeDiscount) * quantity;
 }
         
     

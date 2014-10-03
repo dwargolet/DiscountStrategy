@@ -21,6 +21,11 @@ public class LineItem {
     }
 
     public void setQuantity(int quantity) {
+        
+        if(quantity < 1 || quantity > 100){
+           throw new IllegalArgumentException();
+       } 
+        
         this.quantity = quantity;
     }
 
@@ -29,6 +34,14 @@ public class LineItem {
         return quantity;
     }
        
+    public String getProductID(){
+        return product.getProductID();
+    }
+    
+    public String getProductDescription(){
+        return product.getProductDescription();
+    }
+    
     
     public String getLineItemData(){
         return product.getProductDescription() +

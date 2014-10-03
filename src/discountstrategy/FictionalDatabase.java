@@ -38,25 +38,25 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
     }
     
     
-    @Override
-    public void addCustomerToDataBase(final CustomerInformation customer){
-        CustomerInformation[] tempCustomers = new CustomerInformation[customers.length + 1];
-        System.arraycopy(customers, 0, tempCustomers, 0, customers.length);
-        tempCustomers[customers.length] = customer;
-        customers = tempCustomers;
-    }
+//    @Override
+//    public void addCustomerToDataBase(final CustomerInformation customer){
+//        CustomerInformation[] tempCustomers = new CustomerInformation[customers.length + 1];
+//        System.arraycopy(customers, 0, tempCustomers, 0, customers.length);
+//        tempCustomers[customers.length] = customer;
+//        customers = tempCustomers;
+//    }
     
     
-    private ProductInformation[] products = {
+    private final ProductInformation[] products = {
         new ProductInformation ("1A1", "T-shirt", 4.99, new FlatRateDiscount()),
         new ProductInformation ("2B2", "Skirt", 9.99, new EmployeeDiscount()),      
     };
     
    
-    
+    ProductInformation product;
     @Override
       public ProductInformation findProduct(String productID){    
-        ProductInformation product = null;
+        
         for(ProductInformation p : products){
             if(productID.equals(product.getProductID())){
                 product = p;
@@ -66,11 +66,11 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
         return product;
     }
     
-      @Override
-      public void addProductToDataBase(final ProductInformation product){      
-        ProductInformation [] tempItems = new ProductInformation[products.length + 1];
-        System.arraycopy(products, 0, tempItems, 0, products.length);
-        tempItems[products.length] = product;
-        products = tempItems;
-      }
+//      @Override
+//      public void addProductToDataBase(final ProductInformation product){      
+//        ProductInformation [] tempItems = new ProductInformation[products.length + 1];
+//        System.arraycopy(products, 0, tempItems, 0, products.length);
+//        tempItems[products.length] = product;
+//        products = tempItems;
+//      }
 }

@@ -21,15 +21,15 @@ public class FlatRateDiscount implements DiscountStrategy{
         return flateRateDiscount;
     }
     
-    public void setFlateRateDiscount(double flateRateDiscount) {
+    public void setFlateRateDiscount(double flateRateDiscount) {   
+        
         this.flateRateDiscount = flateRateDiscount;
     }
     
-    
-    
+      
     //curently takes a flat rate off each product
     @Override
-    public double getDiscount(double productCost){
-        return (productCost - flateRateDiscount);
+    public double getDiscount(double productCost, int quantity){
+        return (productCost - flateRateDiscount) * quantity;
     }
 }

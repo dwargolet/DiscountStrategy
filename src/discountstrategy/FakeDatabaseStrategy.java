@@ -8,6 +8,6 @@ package discountstrategy;
 public interface FakeDatabaseStrategy {
      public abstract CustomerInformation findCustomer(String customerID);
      public abstract ProductInformation findProduct(String productID);
-     public abstract void addCustomerToDataBase(CustomerInformation Customer);
-     public abstract void addProductToDataBase(ProductInformation product);
+//     public abstract void addCustomerToDataBase(CustomerInformation Customer);
+//     public abstract void addProductToDataBase(ProductInformation product);
 }
