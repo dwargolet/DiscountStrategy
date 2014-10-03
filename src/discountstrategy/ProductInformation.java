@@ -12,14 +12,14 @@ public class ProductInformation {
     private double productPrice;
     private DiscountStrategy discountStrategy;
     private double discountedPrice;
-    private double discount;
+//    private double discount;
 
     public ProductInformation(String productID, String productDescription, double productPrice, DiscountStrategy discountStrategy) {
         this.productID = productID;
         this.productDescription = productDescription;        
         this.productPrice = productPrice;
         this.discountStrategy = discountStrategy;
-        discountItems();
+//        discountItems();
         
     }
 
@@ -69,9 +69,9 @@ public class ProductInformation {
         this.productDescription = productDescription;
     }
 
-    private void dicountItems(){
-        this.discountedPrice = discountStrategy.getDiscountedPrice(productPrice);
-    }
+//    private void dicountItems(){
+//        this.discountedPrice = discountStrategy.getDiscountedPrice(productPrice);
+//    }
     
     public double getDiscount(){
         return discountStrategy.getDiscount();

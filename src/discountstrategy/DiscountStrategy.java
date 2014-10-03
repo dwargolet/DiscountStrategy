@@ -7,12 +7,7 @@ package discountstrategy;
  */
 public interface DiscountStrategy {
     
-    
-    /**
-     * This method has each discount class return a discount
-     * @param productCost the cost of each product object
-     * @return returns the discount
-     */
+   
     public double getDiscount();
     public double getDiscountedPrice(double itemPrice);
 }

@@ -9,7 +9,7 @@ package discountstrategy;
 public class LineItem {
     private ProductInformation product;
     private int quantity;
-    private final FakeDatabaseStrategy db;
+    private final FakeDatabaseStrategy db = new FictionalDatabase();
 
     
     
@@ -20,6 +20,10 @@ public class LineItem {
         
     }
 
+    public LineItem(){
+        
+    }
+    
     public LineItem addLineItem(String productID, int quantity){
         LineItem lineItem = new LineItem(db.findProduct(productID), quantity);
         return lineItem;

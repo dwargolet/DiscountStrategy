@@ -1,5 +1,5 @@
 package discountstrategy;
-
+import java.util.Date;
 /**
  *This class implements a receipt interface, allowing for flexibility. This 
  * specific class prints to the console
@@ -10,12 +10,13 @@ package discountstrategy;
 public class ReceiptConsoleOutput implements ReceiptStrategy{
     
    private LineItem[] lineItems = new LineItem[0];
-   
+   private LineItem temp = new LineItem();
    private CustomerInformation customer;
-//   private double grandTotal;
-//   private  double totalWithoutDiscount;
+   private double grandTotal;
+   private  double totalDiscount;
+   private double subTotal;
    private FakeDatabaseStrategy db;
-
+   private Date date = new Date();
    
     public ReceiptConsoleOutput(String customerID, FakeDatabaseStrategy db) {
         this.db = db;
@@ -33,19 +34,25 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
   
     @Override
     public void addLineItem(String productID, int quantity ){
-        LineItem item = new LineItem (productID,quantity, db);
-        addToLineItemArray(item);
+        temp = temp.addLineItem(productID,quantity);
+        addToLineItemArray(temp);
     }
        
    
     
     @Override
     public void printReceipt(){
+       System.out.println(date.toString());
        System.out.println(customer.getCustomerFullName());
       
-      for(LineItem item : lineItems){
-          System.out.println(item.getLineItemData());
-      }
+      for(int i = 0; i < lineItems.length;i++){
+        subTotal += lineItems[i].getDiscountedPrice();
+        System.out.println(lineItems[i].getLineItemData()+" "+ subTotal);
+        totalDiscount += lineItems[i].getDiscount();
+        }
+      grandTotal = subTotal;
+      System.out.println(" Your Savings: " + totalDiscount);
+      System.out.println("Total Amount Due: " + grandTotal);
    }
       
     

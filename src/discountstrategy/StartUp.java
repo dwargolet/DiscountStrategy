@@ -10,9 +10,9 @@ package discountstrategy;
 public class StartUp {
     public static void main(String[] args) {
         
-        
-       Register r = new Register();
-       r.startTransaction("Dr4g0n", new FictionalDatabase (), new ReceiptConsoleOutput ());
+        Register r = new Register();
+//       Register r = new Register(new Receipt(new ReceiptConsoleOutput("Dr4g0n", new FictionalDatabase ())));
+       r.startTransaction("Dr4g0n", new FictionalDatabase ());
        r.addItem("1A1", 2);
        r.endTransaction();
        
