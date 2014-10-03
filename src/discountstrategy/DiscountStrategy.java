@@ -13,5 +13,6 @@ public interface DiscountStrategy {
      * @param productCost the cost of each product object
      * @return returns the discount
      */
-    public abstract double getDiscount(double productCost, int quantity);
+    public double getDiscount();
+    public double getDiscountedPrice(double itemPrice);
 }

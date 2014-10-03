@@ -10,19 +10,44 @@ package discountstrategy;
  */
 public class EmployeeDiscount implements DiscountStrategy{
 
-private double employeeDiscount = .15;    
-    
+private double employeeDiscount;    
+private double discountedPrice;
+private double productPrice;
+
+    public EmployeeDiscount(double employeeDiscount) {
+         setEmployeeDiscount(employeeDiscount);
+    }
+
+    public double getEmployeeDiscount() {
+        return employeeDiscount;
+    }
+
+    public void setEmployeeDiscount(double employeeDiscount) {
+        if(employeeDiscount < 0 || employeeDiscount > 1){
+            throw new IllegalArgumentException();
+        }    
+        this.employeeDiscount = employeeDiscount;
+    }
+
+    @Override
+    public double getDiscountedPrice(double productPrice){
+        this.productPrice = productPrice;
+        discountedPrice = productPrice - (productPrice * employeeDiscount);
+        return discountedPrice;
+    }
+
+
 
 /**
  * The overridden method from the interface
  * @param productCost the cost of the product
- * @param quantity how many items are being entered
+ * @param employeeDiscount is the percent of the discount
  * @return the discount amount
  */
 
 @Override    
-public double getDiscount(double productCost, int quantity){
-    return (productCost * employeeDiscount) * quantity;
+public double getDiscount(){
+    return (productPrice * employeeDiscount);
 }
         
     

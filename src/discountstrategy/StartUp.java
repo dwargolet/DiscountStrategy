@@ -12,13 +12,13 @@ public class StartUp {
         
         
        Register r = new Register();
-       r.startTransaction("Dr4g0n", new FictionalDatabase ());
+       r.startTransaction("Dr4g0n", new FictionalDatabase (), new ReceiptConsoleOutput ());
        r.addItem("1A1", 2);
        r.endTransaction();
        
-        r.startTransaction("313Den", new FictionalDatabase ());
+//        r.startTransaction("313Den", new FictionalDatabase ());
 //       r.addItem("1A1", 2);
-       r.endTransaction();
+//       r.endTransaction();
        
 
         

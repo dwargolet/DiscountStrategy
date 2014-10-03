@@ -10,14 +10,16 @@ public class ProductInformation {
     private String productID;
     private String productDescription;    
     private double productPrice;
-    private DiscountStrategy discount;
-    private int quantity;
+    private DiscountStrategy discountStrategy;
+    private double discountedPrice;
+    private double discount;
 
-    public ProductInformation(String productID, String productDescription, double productPrice, DiscountStrategy discount) {
+    public ProductInformation(String productID, String productDescription, double productPrice, DiscountStrategy discountStrategy) {
         this.productID = productID;
         this.productDescription = productDescription;        
         this.productPrice = productPrice;
-        this.discount = discount;
+        this.discountStrategy = discountStrategy;
+        discountItems();
         
     }
 
@@ -26,28 +28,27 @@ public class ProductInformation {
     }
 
     public void setProductPrice(double productPrice) {
+        if(productPrice < 1 ){
+            throw new IllegalArgumentException();
+        }
         this.productPrice = productPrice;
     }
 
-    public DiscountStrategy getDiscount() {
-        return discount;
+    public DiscountStrategy getDiscountStrategy() {
+        return discountStrategy;
     }
 
-    public void setDiscount(DiscountStrategy discount) {
-        this.discount = discount;
+    public void setDiscount(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
     }
 
     
 
-    public double getDiscountAmount() {
-        return discount.getDiscount(productPrice, quantity);
+    public double getDiscountedPrice() {
+        return discountedPrice;
     }
 
-    public void setDiscountAmount(DiscountStrategy discountAmount) {
-        this.discount = discount;
-    }
-    
-    
+ 
     public String getProductID() {
         return productID;
     }
@@ -64,18 +65,15 @@ public class ProductInformation {
         return productDescription;
     }
 
-    public void setProductDescription(final String productDescription) {
+    public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
 
-    public int getQuantity() {
-        return quantity;
+    private void dicountItems(){
+        this.discountedPrice = discountStrategy.getDiscountedPrice(productPrice);
     }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    
+    public double getDiscount(){
+        return discountStrategy.getDiscount();
     }
-
-    
-    
 }

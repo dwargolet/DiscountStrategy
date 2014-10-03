@@ -9,4 +9,6 @@ package discountstrategy;
 public interface ReceiptStrategy {
     public abstract void printReceipt();
     public abstract void addLineItem(String productID, int quantity);
+    public abstract void addToLineItemArray(LineItem item);
+    
 }

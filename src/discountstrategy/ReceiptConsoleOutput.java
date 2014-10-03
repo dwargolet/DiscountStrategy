@@ -22,8 +22,8 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
         customer = db.findCustomer(customerID);
     }
    
-    
-    private void addToLineItemArray(LineItem item){
+    @Override
+    public void addToLineItemArray(LineItem item){
         LineItem[] tempItems = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tempItems, 0, lineItems.length);
         tempItems[lineItems.length] = item;

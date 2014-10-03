@@ -9,17 +9,23 @@ package discountstrategy;
 public class LineItem {
     private ProductInformation product;
     private int quantity;
-    private FakeDatabaseStrategy db;
+    private final FakeDatabaseStrategy db;
 
     
     
     
-    public LineItem(String productID, int quantity, FakeDatabaseStrategy db) {
-        this.product = db.findProduct(productID);
-        this.quantity = quantity;
-        this.db = db;
+    public LineItem(ProductInformation product, int quantity) {
+        setProduct(product);
+        setQuantity(quantity);
+        
     }
 
+    public LineItem addLineItem(String productID, int quantity){
+        LineItem lineItem = new LineItem(db.findProduct(productID), quantity);
+        return lineItem;
+    }
+    
+    
     public void setQuantity(int quantity) {
         
         if(quantity < 1 || quantity > 100){
@@ -28,12 +34,22 @@ public class LineItem {
         
         this.quantity = quantity;
     }
-
     
     public int getQuantity() {
         return quantity;
     }
-       
+    
+    public void setProduct(ProductInformation product){
+        if(product == null){
+            throw new IllegalArgumentException();
+        }
+        this.product = product;
+    }
+    
+    public ProductInformation getProduct(){
+        return product;
+    }
+    
     public String getProductID(){
         return product.getProductID();
     }
@@ -42,22 +58,35 @@ public class LineItem {
         return product.getProductDescription();
     }
     
+    public double getProductPrice(){
+        return product.getProductPrice() * quantity;
+    }
+    
+    public double getDiscountedPrice(){
+        return product.getDiscountedPrice() * quantity;
+    }
+       
+    public double getDiscount(){
+        return product.getDiscount() * quantity;
+    }
+   
     
     public String getLineItemData(){
         return product.getProductDescription() +
                 "  " + product.getProductID() + 
                 "  " + product.getProductPrice() +
-                "  " + quantity
+                "  " + quantity + 
+                "  " + getDiscount()
                 ;
     }
     
     
-    //testing
-    public static void main(String[] args) {
-        LineItem receipt = new LineItem("1A1", 2, new FictionalDatabase());
-        System.out.println(receipt.getLineItemData());
-
-
-    }
+//    //testing
+//    public static void main(String[] args) {
+//        LineItem receipt = new LineItem("1A1", 2, new FictionalDatabase());
+//        System.out.println(receipt.getLineItemData());
+//
+//
+//    }
     
 }

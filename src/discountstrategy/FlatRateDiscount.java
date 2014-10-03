@@ -10,26 +10,31 @@ package discountstrategy;
 public class FlatRateDiscount implements DiscountStrategy{
     
     //Set a flat rate variable
-    private double flateRateDiscount = 3;
 
-    public FlatRateDiscount() {
+    private double discount;
+    private double discountedPrice;
+    
+    public FlatRateDiscount(double discount) {
+        this.discount = discount;
     }
 
-    
-    
-    public double getFlateRateDiscount() {
-        return flateRateDiscount;
+    public void setDiscount(double discount) {
+        if(discount < 0|| discount > 99){
+            throw new IllegalArgumentException();
+        }
+        this.discount = discount;
     }
-    
-    public void setFlateRateDiscount(double flateRateDiscount) {   
-        
-        this.flateRateDiscount = flateRateDiscount;
+
+
+    @Override
+    public double getDiscountedPrice(double productPrice){
+        discountedPrice = productPrice - discount;
+        return discountedPrice;
     }
-    
       
     //curently takes a flat rate off each product
     @Override
-    public double getDiscount(double productCost, int quantity){
-        return (productCost - flateRateDiscount) * quantity;
+    public double getDiscount(){
+        return discount;
     }
 }

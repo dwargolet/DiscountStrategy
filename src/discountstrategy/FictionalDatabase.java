@@ -24,10 +24,10 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
      * @param customerID the unique string that is used to locate the customer
      * @return the customer that matches the customerID
      */
-   
+    CustomerInformation customer;
     @Override
     public CustomerInformation findCustomer(String customerID){
-        CustomerInformation customer = null;
+       
         for(CustomerInformation cust : customers){
             if(customerID.equals(cust.getCustomerID())){
                 customer = cust;
