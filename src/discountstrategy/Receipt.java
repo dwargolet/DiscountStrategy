@@ -12,11 +12,11 @@ public class Receipt {
         this.receipt = receipt;
     }
     
-    public void addItem(String productID, int quantity){
+    public void addLineItem(String productID, int quantity){
         receipt.addLineItem(productID, quantity);
     }
     
-    public void endTransaction(){
+    public void printReceipt(){
         receipt.printReceipt();
     }
     

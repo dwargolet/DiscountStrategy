@@ -15,12 +15,18 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
    private double grandTotal;
    private  double totalDiscount;
    private double subTotal;
-   private FakeDatabaseStrategy db;
+   private FakeDatabaseStrategy db = new  FictionalDatabase();
    private Date date = new Date();
    
-    public ReceiptConsoleOutput(String customerID, FakeDatabaseStrategy db) {
-        this.db = db;
-        customer = db.findCustomer(customerID);
+   private String customerID;
+   
+    public ReceiptConsoleOutput(String customerID, String productID, int quantity) {
+//        this.db = db;
+//        customer = db.findCustomer(customerID);
+        addLineItem(productID, quantity);
+        this.customerID = customerID;
+        lookupCustomer();
+        
     }
    
     @Override
@@ -31,6 +37,9 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
         lineItems = tempItems;
     }
     
+    public void lookupCustomer(){
+        customer = db.findCustomer(customerID);
+    }
   
     @Override
     public void addLineItem(String productID, int quantity ){
@@ -59,7 +68,9 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     
    //testing
     public static void main(String[] args) {
-        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n",new FictionalDatabase());
+//        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n",new FictionalDatabase());
+//        receipt.addLineItem("1A1", 2);
+        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n", "1A1", 2);
 //        receipt.addLineItem("1A1", 2);
         receipt.printReceipt();
 

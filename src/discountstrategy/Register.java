@@ -6,14 +6,16 @@ package discountstrategy;
  * @version 1.00 
  */
 public class Register {
-    private ReceiptConsoleOutput receipt;
+    private Receipt receipt;
 
-//    public Register(Receipt receipt) {
-//        this.receipt = receipt;
-//    }
+    public Register(Receipt receipt) {
+        this.receipt = receipt;
+    }
 
 
-    
+    public void setReceipt(Receipt receipt){
+        this.receipt = receipt;
+    }
     
     /**
      * This method creates a new receipt
@@ -21,7 +23,7 @@ public class Register {
      * @param database 
      */
     public void startTransaction(String customerID, FakeDatabaseStrategy database){
-        receipt = new ReceiptConsoleOutput(customerID, database);
+//        receipt = new ReceiptConsoleOutput(customerID, database);
     }
     
     

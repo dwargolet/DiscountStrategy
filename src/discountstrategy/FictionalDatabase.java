@@ -54,13 +54,13 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
     
    
     ProductInformation product;
+    
     @Override
-      public ProductInformation findProduct(String productID){    
-        
-        for(ProductInformation p : products){
-            if(productID.equals(product.getProductID())){
-                product = p;
-                break;
+    public ProductInformation findProduct(String productID){            
+        for (int i = 0; i<products.length;i++){
+            if(productID.equals(products[i].getProductID())){
+                product = products[i];
+                
             }
         }
         return product;
