@@ -8,9 +8,7 @@ package discountstrategy;
  * @version 1.00 
  */
 public class FlatRateDiscount implements DiscountStrategy{
-    
-    //Set a flat rate variable
-
+   
     private double discount;
     private double discountedPrice;
     
@@ -18,6 +16,11 @@ public class FlatRateDiscount implements DiscountStrategy{
         this.discount = discount;
     }
 
+    
+    /**
+     * sets the discount amount and uses validation
+     * @param discount the flat rate discount amount
+     */
     public void setDiscount(double discount) {
         if(discount < 0|| discount > 99){
             throw new IllegalArgumentException();
@@ -26,13 +29,21 @@ public class FlatRateDiscount implements DiscountStrategy{
     }
 
 
+    /**
+     * Override the method from the discount interface, returns the discounted price
+     * @param productPrice the normal cost of the product
+     * @return the new product cost with the discount applied
+     */
     @Override
     public double getDiscountedPrice(double productPrice){
         discountedPrice = productPrice - discount;
         return discountedPrice;
     }
       
-    //curently takes a flat rate off each product
+    /**
+     *  The overridden method from the interface, returns the discount amount
+     * @return the discount amount
+     */
     @Override
     public double getDiscount(){
         return discount;

@@ -55,15 +55,23 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
    
     ProductInformation product;
     
+    /**
+     * This method loops through the products array, matches the product id and
+     * returns the corresponding product
+     * @param productID the unique identifier
+     * @return 
+     */
+    
     @Override
     public ProductInformation findProduct(String productID){            
-        for (int i = 0; i<products.length;i++){
-            if(productID.equals(products[i].getProductID())){
-                product = products[i];
-                
+        for(ProductInformation p : products){
+            if(productID.equals(p.getProductID())){
+                product = p;
+                break;
             }
         }
         return product;
+        
     }
     
 //      @Override

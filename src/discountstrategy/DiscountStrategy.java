@@ -7,7 +7,16 @@ package discountstrategy;
  */
 public interface DiscountStrategy {
     
-   
+   /**
+    * returns the dicsount type
+    * @return 
+    */
     public double getDiscount();
+    
+    /**
+     * returns the discounted price
+     * @param itemPrice the items normal price
+     * @return the discounted price
+     */
     public double getDiscountedPrice(double itemPrice);
 }

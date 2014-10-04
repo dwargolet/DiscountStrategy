@@ -17,18 +17,7 @@ public class Register {
         this.receipt = receipt;
     }
     
-    /**
-     * This method creates a new receipt
-     * @param customerID
-     * @param database 
-     */
-    public void startTransaction(String customerID, FakeDatabaseStrategy database){
-//        receipt = new ReceiptConsoleOutput(customerID, database);
-    }
-    
-    
-    
-    
+
     /**
      * this method allows the user to add an item to the receipt
      * @param productID the items unique identifier

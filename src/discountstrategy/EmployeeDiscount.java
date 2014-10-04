@@ -18,10 +18,21 @@ private double productPrice;
          setEmployeeDiscount(employeeDiscount);
     }
 
+    
+    /**
+     * getter method for employee discount
+     * @return returns the employee discount
+     */
     public double getEmployeeDiscount() {
         return employeeDiscount;
     }
 
+    
+    /**
+     * set the amount desired for the employee discount, has validation
+     * @param employeeDiscount the employee discount amount
+     */
+    
     public void setEmployeeDiscount(double employeeDiscount) {
         if(employeeDiscount < 0 || employeeDiscount > 1){
             throw new IllegalArgumentException();
@@ -29,6 +40,11 @@ private double productPrice;
         this.employeeDiscount = employeeDiscount;
     }
 
+    /**
+     * Override the method from the discount interface, returns the discounted price
+     * @param productPrice the normal cost of the product
+     * @return the new product cost with the discount applied
+     */
     @Override
     public double getDiscountedPrice(double productPrice){
         this.productPrice = productPrice;
@@ -39,9 +55,7 @@ private double productPrice;
 
 
 /**
- * The overridden method from the interface
- * @param productCost the cost of the product
- * @param employeeDiscount is the percent of the discount
+ * The overridden method from the interface, returns the discount amount
  * @return the discount amount
  */
 

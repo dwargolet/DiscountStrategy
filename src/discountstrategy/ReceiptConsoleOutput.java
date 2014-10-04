@@ -16,13 +16,11 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
    private  double totalDiscount;
    private double subTotal;
    private FakeDatabaseStrategy db = new  FictionalDatabase();
-   private Date date = new Date();
-   
+   private Date date = new Date(); 
    private String customerID;
    
+   
     public ReceiptConsoleOutput(String customerID, String productID, int quantity) {
-//        this.db = db;
-//        customer = db.findCustomer(customerID);
         addLineItem(productID, quantity);
         this.customerID = customerID;
         lookupCustomer();

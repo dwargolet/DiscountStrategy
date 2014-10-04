@@ -1,7 +1,6 @@
 package discountstrategy;
 
 /**
- *
  * This class is responsible for obtaining Customer information
  * such as their full name and a customer ID.
  * 
