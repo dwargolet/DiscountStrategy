@@ -50,16 +50,16 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     @Override
     public void printReceipt(){
        System.out.println(date.toString());
-       System.out.println(customer.getCustomerFullName());
-      
-      for(int i = 0; i < lineItems.length;i++){
+       System.out.println(" Welcome back " + customer.getCustomerFullName());
+       System.out.println("--------------------------");
+      for(int i = 0; i < lineItems.length; i++){
         subTotal += lineItems[i].getDiscountedPrice();
-        System.out.println(lineItems[i].getLineItemData()+" "+ subTotal);
+        System.out.println(lineItems[i].getLineItemData()+" $" + subTotal);
         totalDiscount += lineItems[i].getDiscount();
         }
       grandTotal = subTotal;
-      System.out.println(" Your Savings: " + totalDiscount);
-      System.out.println("Total Amount Due: " + grandTotal);
+      System.out.println(" Your Savings: $" + totalDiscount);
+      System.out.println("Total Amount Due: $" + grandTotal);
    }
       
     
@@ -68,8 +68,8 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     public static void main(String[] args) {
 //        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n",new FictionalDatabase());
 //        receipt.addLineItem("1A1", 2);
-        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n", "1A1", 2);
-//        receipt.addLineItem("1A1", 2);
+        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n", "1A1", 6);
+        receipt.addLineItem("2B2", 2);
         receipt.printReceipt();
 
 

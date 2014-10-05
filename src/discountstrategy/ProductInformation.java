@@ -72,7 +72,7 @@ public class ProductInformation {
 //    private void dicountItems(){
 //        this.discountedPrice = discountStrategy.getDiscountedPrice(productPrice);
 //    }
-    
+//    
     public double getDiscount(){
         return discountStrategy.getDiscount();
     }

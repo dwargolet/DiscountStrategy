@@ -8,7 +8,7 @@ package discountstrategy;
 public interface DiscountStrategy {
     
    /**
-    * returns the dicsount type
+    * returns the discount type
     * @return 
     */
     public double getDiscount();
