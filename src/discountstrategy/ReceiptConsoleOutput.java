@@ -53,8 +53,9 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
        System.out.println(" Welcome back " + customer.getCustomerFullName());
        System.out.println("--------------------------");
       for(int i = 0; i < lineItems.length; i++){
+        
+        System.out.println(lineItems[i].getLineItemData());
         subTotal += lineItems[i].getDiscountedPrice();
-        System.out.println(lineItems[i].getLineItemData()+" $" + subTotal);
         totalDiscount += lineItems[i].getDiscount();
         }
       grandTotal = subTotal;
@@ -68,7 +69,7 @@ public class ReceiptConsoleOutput implements ReceiptStrategy{
     public static void main(String[] args) {
 //        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n",new FictionalDatabase());
 //        receipt.addLineItem("1A1", 2);
-        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n", "1A1", 6);
+        ReceiptConsoleOutput receipt = new ReceiptConsoleOutput("Dr4g0n", "1A1", 2);
         receipt.addLineItem("2B2", 2);
         receipt.printReceipt();
 

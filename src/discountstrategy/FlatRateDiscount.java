@@ -48,4 +48,5 @@ public class FlatRateDiscount implements DiscountStrategy{
     public double getDiscount(){
         return discount;
     }
+
 }

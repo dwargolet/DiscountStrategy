@@ -131,7 +131,7 @@ public class LineItem {
                 "  " + product.getProductID() + 
                 "  " + product.getProductPrice() +
                 "  " + quantity + 
-                "  " + getDiscount()
+                "  " + getDiscountedPrice()
                 ;
     }
     
