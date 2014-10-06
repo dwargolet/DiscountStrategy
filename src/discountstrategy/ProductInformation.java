@@ -44,8 +44,8 @@ public class ProductInformation {
 
     
 
-    public double getDiscountedPrice() {
-        return (productPrice - discountStrategy.getDiscount());
+    public double getDiscountedPrice(double productPrice) {
+        return discountStrategy.getDiscountedPrice(productPrice);
     }
 
  
@@ -75,9 +75,9 @@ public class ProductInformation {
     
     //testing
     public static void main(String[] args) {
-       ProductInformation p = new ProductInformation("1B1", "test", 2, new EmployeeDiscount(.15));
+       ProductInformation p = new ProductInformation("2B2", "test", 9.99, new EmployeeDiscount(.15));
         
-        System.out.println(p.getDiscountedPrice());
+        System.out.println(p.getDiscountedPrice(9.99));
 
 
     }

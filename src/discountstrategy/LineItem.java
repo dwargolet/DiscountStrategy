@@ -111,7 +111,7 @@ public class LineItem {
      * @return discounted price per item
      */
     public double getDiscountedPrice(){
-        return product.getDiscountedPrice() * quantity;
+        return product.getDiscountedPrice(product.getProductPrice()) * quantity;
     }
     
     /**

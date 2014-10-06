@@ -14,6 +14,7 @@ private double employeeDiscount;
 private double discountedPrice;
 private double productPrice;
 
+
     public EmployeeDiscount(double employeeDiscount) {
          setEmployeeDiscount(employeeDiscount);
     }
@@ -46,8 +47,7 @@ private double productPrice;
      * @return the new product cost with the discount applied
      */
     @Override
-    public double getDiscountedPrice(double productPrice){
-        this.productPrice = productPrice;
+    public double getDiscountedPrice(double productPrice){       
         discountedPrice = productPrice - (productPrice * employeeDiscount);
         return discountedPrice;
     }
@@ -61,7 +61,7 @@ private double productPrice;
 
 @Override    
 public double getDiscount(){
-    return (productPrice * employeeDiscount);
+    return employeeDiscount;
 }
         
     
