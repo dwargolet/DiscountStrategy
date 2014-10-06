@@ -14,9 +14,10 @@ public class StartUp {
        r.addItem("2B2", 2);
        r.endTransaction();
        
-//        r.startTransaction("313Den", new FictionalDatabase ());
-//       r.addItem("1A1", 2);
-//       r.endTransaction();
+//       Register r2 = new Register(new Receipt(new ReceiptConsoleOutput("313Den","3C3",3)));
+//       r2.addItem("1A1", 1);
+//       r2.endTransaction();
+
        
 
         

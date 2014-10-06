@@ -49,7 +49,8 @@ public class FictionalDatabase implements FakeDatabaseStrategy{
     
     private final ProductInformation[] products = {
         new ProductInformation ("1A1", "Pants", 4.99, new FlatRateDiscount(2)),
-        new ProductInformation ("2B2", "Skirt", 9.99, new EmployeeDiscount(.15)),      
+        new ProductInformation ("2B2", "Skirt", 9.99, new EmployeeDiscount(.15)), 
+        new ProductInformation ("3C3", "Shoes", 6.99, new NoDiscount())
     };
     
    
