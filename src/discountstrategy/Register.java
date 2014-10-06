@@ -13,6 +13,10 @@ public class Register {
     }
 
 
+    /**
+     * allows the user to set what kind of receipt they want
+     * @param receipt the instance of receipt
+     */
     public void setReceipt(Receipt receipt){
         this.receipt = receipt;
     }

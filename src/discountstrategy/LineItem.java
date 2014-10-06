@@ -1,5 +1,7 @@
 package discountstrategy;
 
+import java.text.DecimalFormat;
+
 /**This class takes all of the information of a "item" object and sets it as a
  * line item, putting the information into a line like format for the receipt
  *
@@ -10,10 +12,15 @@ public class LineItem {
     private ProductInformation product;
     private int quantity;
     private final FakeDatabaseStrategy db = new FictionalDatabase();
-
+    DecimalFormat df = new DecimalFormat("#.##"); 
     
     
-    
+    /**
+     * this is the constructor, it requires that you set an item and quantity 
+     * for each line item
+     * @param product the product
+     * @param quantity the quantity
+     */
     public LineItem(ProductInformation product, int quantity) {
         setProduct(product);
         setQuantity(quantity);
@@ -128,10 +135,10 @@ public class LineItem {
      */
     public String getLineItemData(){
         return product.getProductDescription() +
-                "  " + product.getProductID() + 
-                "  " + product.getProductPrice() +
-                "  " + quantity + 
-                "  " + getDiscountedPrice()
+                "    " + product.getProductID() + 
+                "   " + product.getProductPrice() +
+                "   " + quantity + 
+                "   " + df.format(getDiscountedPrice())
                 ;
     }
     

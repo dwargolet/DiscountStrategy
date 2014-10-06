@@ -12,6 +12,11 @@ public class FlatRateDiscount implements DiscountStrategy{
     private double discount;
     private double discountedPrice;
     
+    /**
+     * this is the constructor, it takes in the discount amount
+     * @param discount 
+     */
+    
     public FlatRateDiscount(double discount) {
         this.discount = discount;
     }

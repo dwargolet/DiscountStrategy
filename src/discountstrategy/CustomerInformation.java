@@ -13,6 +13,12 @@ public class CustomerInformation {
     private String customerFullName;
     private String customerID;
 
+    /**
+     * this is the constructor for the customer class, it takes in the full name,
+     * and customer ID
+     * @param customerFullName customers name
+     * @param customerID customers unique identifier
+     */
     public CustomerInformation(String customerFullName, String customerID) {
         this.customerFullName = customerFullName;
         this.customerID = customerID;

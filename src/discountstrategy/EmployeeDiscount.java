@@ -15,6 +15,12 @@ private double discountedPrice;
 private double productPrice;
 
 
+
+/**
+ * this is the constructor for this class, it takes in the employee discount, 
+ * which requires you to set it
+ * @param employeeDiscount employee discount
+ */
     public EmployeeDiscount(double employeeDiscount) {
          setEmployeeDiscount(employeeDiscount);
     }
