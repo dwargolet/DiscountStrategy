@@ -11,7 +11,7 @@ public class ProductInformation {
     private String productDescription;    
     private double productPrice;
     private DiscountStrategy discountStrategy;
-
+    private int minPrice = 1;
 
     /**
      * this is the constructor, it takes in the product ID, name, the price
@@ -42,9 +42,9 @@ public class ProductInformation {
      * method for setting the product price, does have validation
      * @param productPrice product price variable
      */
-    public void setProductPrice(double productPrice) {
-        if(productPrice < 1 ){
-            throw new IllegalArgumentException();
+    public void setProductPrice(double productPrice) throws IllegalArgumentException {
+        if(productPrice < minPrice ){
+            throw new IllegalArgumentException("Product price can not be 0 or less");
         }
         this.productPrice = productPrice;
     }
@@ -61,7 +61,11 @@ public class ProductInformation {
      * method allows you to set the type of discount
      * @param discountStrategy the variable holding the discount strategy
      */
-    public void setDiscount(DiscountStrategy discountStrategy) {
+    public void setDiscount(DiscountStrategy discountStrategy) throws IllegalArgumentException {
+        if(discountStrategy == null){
+           throw new IllegalArgumentException("Must enter a discount strategy");
+       } 
+        
         this.discountStrategy = discountStrategy;
     }
 
@@ -90,9 +94,9 @@ public class ProductInformation {
      * This method allows you to set the product ID, it also contains validation
      * @param productID the unique product ID
      */
-    public void setProductID(final String productID) {        
+    public void setProductID(final String productID) throws IllegalArgumentException {        
        if(productID == null || productID.isEmpty()){
-           throw new IllegalArgumentException();
+           throw new IllegalArgumentException("Must enter a valid product ID");
        } 
         this.productID = productID;
     }
@@ -109,7 +113,11 @@ public class ProductInformation {
      * this method allows for the product name to be entered
      * @param productDescription 
      */
-    public void setProductDescription(String productDescription) {
+    public void setProductDescription(String productDescription) throws IllegalArgumentException {
+        if(productDescription == null || productDescription.isEmpty()){
+           throw new IllegalArgumentException("Must enter a product description");
+       } 
+        
         this.productDescription = productDescription;
     }
 

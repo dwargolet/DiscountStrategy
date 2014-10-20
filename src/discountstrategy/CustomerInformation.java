@@ -38,6 +38,11 @@ public class CustomerInformation {
      * @param customerFullName variable for the customers name
      */
     public void setCustomerFullName(String customerFullName) {
+        if(customerFullName == null || customerFullName.isEmpty()){
+            throw new IllegalArgumentException("Full name must include a space");
+        }
+        
+        
         this.customerFullName = customerFullName;
     }
 
@@ -62,7 +67,7 @@ public class CustomerInformation {
     
     public void setCustomerID(final String customerID) {
         if(customerID == null || customerID.isEmpty()){
-           throw new IllegalArgumentException();
+           throw new IllegalArgumentException("Customer ID can not be empty or null");
        } 
         
         this.customerID = customerID;

@@ -12,8 +12,8 @@ public class EmployeeDiscount implements DiscountStrategy{
 
 private double employeeDiscount;    
 private double discountedPrice;
-private double productPrice;
-
+private double maxDiscount = 99;
+private final int minDiscount = 0;
 
 
 /**
@@ -21,7 +21,7 @@ private double productPrice;
  * which requires you to set it
  * @param employeeDiscount employee discount
  */
-    public EmployeeDiscount(double employeeDiscount) {
+    public EmployeeDiscount(double employeeDiscount) {        
          setEmployeeDiscount(employeeDiscount);
     }
 
@@ -40,9 +40,9 @@ private double productPrice;
      * @param employeeDiscount the employee discount amount
      */
     
-    public void setEmployeeDiscount(double employeeDiscount) {
-        if(employeeDiscount < 0 || employeeDiscount > 1){
-            throw new IllegalArgumentException();
+    public void setEmployeeDiscount(double employeeDiscount) throws IllegalArgumentException {
+        if(employeeDiscount < minDiscount || employeeDiscount > maxDiscount){
+            throw new IllegalArgumentException("Discount must be between 0 and 99");
         }    
         this.employeeDiscount = employeeDiscount;
     }

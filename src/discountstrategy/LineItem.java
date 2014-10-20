@@ -13,7 +13,8 @@ public class LineItem {
     private int quantity;
     private final FakeDatabaseStrategy db = new FictionalDatabase();
     DecimalFormat df = new DecimalFormat("#.##"); 
-    
+    private final int minItem = 0;
+    private int maxItem = 100;
     
     /**
      * this is the constructor, it requires that you set an item and quantity 
@@ -47,10 +48,10 @@ public class LineItem {
      * sets the quantity of an item being bought, implements validation
      * @param quantity the amount of an item being entered
      */
-    public void setQuantity(int quantity) {
+    public void setQuantity(int quantity) throws IllegalArgumentException{
         
-        if(quantity < 1 || quantity > 100){
-           throw new IllegalArgumentException();
+        if(quantity < minItem || quantity > maxItem){
+           throw new IllegalArgumentException("Quantity must be between 0 and 100");
        } 
         
         this.quantity = quantity;
@@ -71,9 +72,9 @@ public class LineItem {
      * @param product an instance of the productInformation class
      */
     
-    public void setProduct(ProductInformation product){
+    public void setProduct(ProductInformation product) throws IllegalArgumentException{
         if(product == null){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Product can not be null");
         }
         this.product = product;
     }

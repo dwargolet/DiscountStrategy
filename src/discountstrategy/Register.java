@@ -7,7 +7,7 @@ package discountstrategy;
  */
 public class Register {
     private Receipt receipt;
-
+    private final int minQuantity = 0;
     public Register(Receipt receipt) {
         this.receipt = receipt;
     }
@@ -28,7 +28,12 @@ public class Register {
      * @param quantity  how many instances of the item there are
      */
     
-    public void addItem(String productID, int quantity){
+    public void addItem(String productID, int quantity) throws IllegalArgumentException{
+        if(productID == null || quantity == minQuantity){
+           throw new IllegalArgumentException("Must enter a product ID and can not have 0 items");
+       } 
+        
+        
         receipt.addLineItem(productID, quantity);
     }
     

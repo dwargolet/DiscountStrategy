@@ -11,7 +11,8 @@ public class FlatRateDiscount implements DiscountStrategy{
    
     private double discount;
     private double discountedPrice;
-    
+    private double maxDiscount = 99;
+    private final int minDiscount = 0;
     /**
      * this is the constructor, it takes in the discount amount
      * @param discount 
@@ -26,9 +27,9 @@ public class FlatRateDiscount implements DiscountStrategy{
      * sets the discount amount and uses validation
      * @param discount the flat rate discount amount
      */
-    public void setDiscount(double discount) {
-        if(discount < 0|| discount > 99){
-            throw new IllegalArgumentException();
+    public void setDiscount(double discount) throws IllegalArgumentException {
+        if(discount < minDiscount|| discount > maxDiscount){
+            throw new IllegalArgumentException("Discount must be between 0 and 99");
         }
         this.discount = discount;
     }
